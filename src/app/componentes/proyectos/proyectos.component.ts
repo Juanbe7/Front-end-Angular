@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup } from '@angular/forms';
+import { Observable } from 'rxjs';
 import { PortfolioService } from 'src/app/servicios/portfolio.service';
 
 @Component({
@@ -13,6 +14,7 @@ export class ProyectosComponent implements OnInit {
   form2:FormGroup;
   _id!: number;
   _indice!:number;
+  data$:Observable<boolean>;
   edicionProyecto={
     id:'',
     name:'',
@@ -23,6 +25,7 @@ export class ProyectosComponent implements OnInit {
   };
   constructor(private datosPortfolio:PortfolioService, private formBuilder:FormBuilder)
   {
+    this.data$=datosPortfolio.sharingObservable;
     this.form=this.formBuilder.group({
       id:'',
       name:'',

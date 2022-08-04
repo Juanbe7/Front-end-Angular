@@ -71,7 +71,7 @@
 <div class="card" style="width: 100%;">
     <div class="d-flex justify-content-between">
       <h4 class="titulo">Proyectos </h4>
-      <button type="button" class="btn-editar edicion1" style="margin-right:20px; margin-top:10px;" data-toggle="modal" data-target="#modalAgregarProyecto"><img src="./assets/Icons/plus.svg" alt="Bootstrap" width="25" height="25" ></button>
+      <button *ngIf="data$|async" type="button" class="btn-editar edicion1" style="margin-right:20px; margin-top:10px;" data-toggle="modal" data-target="#modalAgregarProyecto"><img src="./assets/Icons/plus.svg" alt="Bootstrap" width="25" height="25" ></button>
     </div>
     <div class="card-bodyexp">
       <div class="d-flex division" *ngFor="let proyecto of miPorfolioProyectos;let indice=index">
@@ -80,7 +80,7 @@
           <div class="d-flex justify-content-between" style="width:100%;height: 25px;">
             <h5  class="edicion1 edicion-hide1"><input type="text" id="txtEducacionInstitucion"></h5>
             <h5 class="margen" style="margin-left: 15px;">{{proyecto.name}}</h5>
-            <div>
+            <div *ngIf="data$|async">
               <button (click)="irEditarProyecto(indice,proyecto.id)"  type="button" style="margin-right:20px; margin-top:10px;" data-toggle="modal" data-target="#modalEditarProyecto" class="btn-editar hide" value={{proyecto.id}}><img src="./assets/Icons/pencil.svg" alt="Bootstrap" width="20" height="15"></button>
               <button (click)="borrarProyecto(proyecto.id)" class="btn-editar hide" style="margin-left: -20px;"><img src="./assets/Icons/trash3-fill.svg" alt="Bootstrap" width="20" height="15"></button>  
             </div>

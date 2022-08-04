@@ -1,12 +1,12 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { Observable } from 'rxjs';
+import { BehaviorSubject, Observable } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
 })
 export class PortfolioService {
-
+  public esconder:boolean =true;
   constructor(private httpRequeset:HttpClient) { }
   obtenerDatos(url: string):Observable<any>
   {
@@ -25,4 +25,18 @@ export class PortfolioService {
   {
     return this.httpRequeset.put(url,datos);
   }
+
+  private sharingObservablePrivate: BehaviorSubject<boolean> = new BehaviorSubject<boolean>(false);
+
+  get sharingObservable()
+  {
+    return this.sharingObservablePrivate.asObservable();
+  }
+
+  set sharingObservableData(data: boolean)
+  {
+    this.sharingObservablePrivate.next(data);
+  }
+
 }
+

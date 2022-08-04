@@ -76,7 +76,7 @@
 <div class="card" style="width: 100%;">
   <div class="d-flex justify-content-between">
     <h4 class="titulo">Educacion</h4>
-    <div>
+    <div *ngIf="data$|async">
       <button type="button" class="btn-editar edicion1" style="margin-right:20px; margin-top:10px;" data-toggle="modal" data-target="#exampleModalCenter"><img src="./assets/Icons/plus.svg" alt="Bootstrap" width="25" height="25" ></button>
     </div>
   </div>
@@ -87,7 +87,7 @@
         <div class="d-flex justify-content-between" style="width:100%;height: 25px;">
           <h5  class="edicion1 edicion-hide1"><input type="text" id="txtEducacionInstitucion"></h5>
           <h5 class="margen">{{educacion.institucion}}</h5>
-          <div>
+          <div *ngIf="data$|async">
             <button (click)="irEditarEducacion(indice,educacion.id)" type="button" style="margin-right:20px; margin-top:10px;" data-toggle="modal" data-target="#modalEdicion" class="btn-editar hide" value={{educacion.id}}><img src="./assets/Icons/pencil.svg" alt="Bootstrap" width="20" height="15"></button>
             <button (click)="borrarEducacion(educacion.id)" class="btn-editar hide" style="margin-left: -20px;"><img src="./assets/Icons/trash3-fill.svg" alt="Bootstrap" width="20" height="15"></button> 
           </div>

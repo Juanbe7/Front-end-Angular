@@ -68,7 +68,7 @@
     <div class="d-flex justify-content-between">
       <h4 class="titulo">Habilidades</h4>
       <!-- <button (click)="irEditarEducacion(indice,educacion.id)" type="button" style="margin-right:20px; margin-top:10px;" data-toggle="modal" data-target="#modalEdicion" class="btn-editar hide"><img src="./assets/Icons/pencil.svg" alt="Bootstrap" width="20" height="15"></button> -->
-      <button  type="button" style="margin-right:20px; margin-top:10px;" data-toggle="modal" data-target="#modalAgregarHabilidad" class="btn-editar hide"><img src="./assets/Icons/plus.svg" alt="Bootstrap" width="25" height="25" style="margin-top: -10px;"></button>
+      <button *ngIf="data$|async" type="button" style="margin-right:20px; margin-top:10px;" data-toggle="modal" data-target="#modalAgregarHabilidad" class="btn-editar hide"><img src="./assets/Icons/plus.svg" alt="Bootstrap" width="25" height="25" style="margin-top: -10px;"></button>
     </div>   
     <div class="card-body">
       <div class="row row-cols-2" *ngFor="let habilidad of miPorfolioHabilidades; let indice=index">
@@ -77,7 +77,7 @@
           aria-valuenow="50" aria-valuemin="0" aria-valuemax="100" style="--value:{{habilidad.porcentaje}}%">{{habilidad.name}} ({{habilidad.porcentaje}}%)</div>
         </div>
       </div>
-      <div class="col-1 d-flex"><button (click)="irEditarHabilidad(indice,habilidad.id)"  type="button" style="margin-right:20px; margin-top:10px;" data-toggle="modal" data-target="#modalEdicionHabilidad" class="btn-editar hide">
+      <div *ngIf="data$|async" class="col-1 d-flex"><button (click)="irEditarHabilidad(indice,habilidad.id)"  type="button" style="margin-right:20px; margin-top:10px;" data-toggle="modal" data-target="#modalEdicionHabilidad" class="btn-editar hide">
           <img src="./assets/Icons/pencil.svg" alt="Bootstrap" width="20" height="15" style="margin-top: -30px;"></button>
           <button (click)="borrarHabilidad(habilidad.id)" class="btn-editar hide" style="margin-left: -20px;"><img src="./assets/Icons/trash3-fill.svg" alt="Bootstrap" width="20" height="15" style="margin-top: -20px;"></button>
       </div>       

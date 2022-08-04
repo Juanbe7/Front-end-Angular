@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { PortfolioService } from 'src/app/servicios/portfolio.service';
 import { FormBuilder, FormGroup } from '@angular/forms';
+import { Observable } from 'rxjs';
 
 @Component({
   selector: 'app-habilidades',
@@ -14,6 +15,7 @@ export class HabilidadesComponent implements OnInit {
   _id:number=0;
   _indice:number=0;
   value:number|null=0;
+  data$:Observable<boolean>;
   edicionHabilidad=
   {
     id:'',
@@ -22,6 +24,7 @@ export class HabilidadesComponent implements OnInit {
   };
   constructor(private datosPortfolio:PortfolioService, private formBuilder:FormBuilder)
   {
+    this.data$ = datosPortfolio.sharingObservable
     this.form=this.formBuilder.group({
       id:'',
       name:'',

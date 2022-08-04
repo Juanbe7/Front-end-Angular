@@ -1,7 +1,7 @@
 import { ChangeDetectionStrategy, Component, OnInit } from '@angular/core';
 import { PortfolioService } from 'src/app/servicios/portfolio.service';
 import { FormBuilder,FormGroup,Validators } from '@angular/forms';
-import { delay } from 'rxjs';
+import { delay, Observable } from 'rxjs';
 
 @Component({
   selector: 'app-perfil',
@@ -13,9 +13,10 @@ export class PerfilComponent implements OnInit {
   miPorfolio:any;
   ocultar=false;
   form:FormGroup;
-
+  data$:Observable<boolean>;
   constructor(private datosPortfolio:PortfolioService, private formBuilder:FormBuilder)
   { 
+    this.data$=datosPortfolio.sharingObservable;
     this.form=this.formBuilder.group({
       nombre:'',
       descripcion:''
