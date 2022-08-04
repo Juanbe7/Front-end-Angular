@@ -1,0 +1,106 @@
+<form [formGroup]="form">
+  <div>    
+    <div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+      <div class="modal-dialog modal-dialog-centered" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="exampleModalLongTitle">Agregar Educacion</h5>
+            <button type="button" class="btn-editar" data-dismiss="modal" aria-label="Close">
+              <img src="./assets/Icons/x.svg" alt="Bootstrap" width="30" height="30" style="margin-top: -10px;">
+            </button>
+          </div>
+          <div class="modal-body">
+            <div class="row row-cols-2">
+                <div class="col"><label for="">Institucion: </label></div>
+                <div class="col"><input formControlName="institucion" type="text" id="txtInstitucion" class="txtModal"></div>
+                <div class="col"><label for="">Link de imagen: </label></div>
+                <div class="col"><input formControlName="linkImagen" type="text" id="txtImagen" class="txtModal"></div>
+                <div class="col"><label for="">Carrera: </label></div>
+                <div class="col"><input formControlName="carrera" type="text" id="txtCarrera" class="txtModal"></div>
+                <div class="col"><label for="">Estado: </label></div>
+                <div class="col"><input formControlName="estado" type="text" id="txtEstado" class="txtModal"></div>
+                <div class="col"><label for="">Año ingreso: </label></div>
+                <div class="col"><input formControlName="tiempodesde" type="text" id="txtDesde" class="txtModal"></div>
+                <div class="col"><label for="">Año egreso: </label></div>
+                <div class="col"><input formControlName="tiempohasta" type="text" id="txtHasta" class="txtModal"></div>
+            </div>
+          <div class="modal-footer" style="margin-top: 15px;">
+            <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
+            <button (click)="agregarEducacion()" type="button" class="btn btn-primary" data-dismiss="modal">Guardar</button>
+          </div>
+        </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</form>
+
+<form [formGroup]="form1">
+  <div>    
+    <div class="modal fade" id="modalEdicion" tabindex="-1" role="dialog" aria-labelledby="modalEdicion" aria-hidden="true">
+      <div class="modal-dialog modal-dialog-centered" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="exampleModalLongTitle">Editar Educacion</h5>
+            <button type="button" class="btn-editar" data-dismiss="modal" aria-label="Close">
+              <img src="./assets/Icons/x.svg" alt="Bootstrap" width="30" height="30" style="margin-top: -10px;">
+            </button>
+          </div>
+          <div class="modal-body">
+            <div class="row row-cols-2">
+                <div class="col"><label for="">Institucion: </label></div>
+                <div class="col"><input formControlName="institucion" type="text" id="txtInstitucion" class="txtModal" ngModel="{{edicionEducacion.institucion}}"></div>
+                <div class="col"><label for="">Link de imagen: </label></div>
+                <div class="col"><input formControlName="linkImagen" type="text" id="txtImagen" class="txtModal" ngModel="{{edicionEducacion.linkImagen}}"></div>
+                <div class="col"><label for="">Carrera: </label></div>
+                <div class="col"><input formControlName="carrera" type="text" id="txtCarrera" class="txtModal" ngModel="{{edicionEducacion.carrera}}"></div>
+                <div class="col"><label for="">Estado: </label></div>
+                <div class="col"><input formControlName="estado" type="text" id="txtEstado" class="txtModal" ngModel="{{edicionEducacion.estado}}"></div>
+                <div class="col"><label for="">Año ingreso: </label></div>
+                <div class="col"><input formControlName="tiempodesde" type="text" id="txtDesde" class="txtModal" ngModel="{{edicionEducacion.tiempodesde}}"></div>
+                <div class="col"><label for="">Año egreso: </label></div>
+                <div class="col"><input formControlName="tiempohasta" type="text" id="txtHasta" class="txtModal" ngModel="{{edicionEducacion.tiempohasta}}"></div>
+            </div>
+          <div class="modal-footer" style="margin-top: 15px;">
+            <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
+            <button (click)="editarEducacion()" type="button" class="btn btn-primary" data-dismiss="modal">Editar</button>
+          </div>
+        </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</form>
+
+
+<div class="card" style="width: 100%;">
+  <div class="d-flex justify-content-between">
+    <h4 class="titulo">Educacion</h4>
+    <div>
+      <button type="button" class="btn-editar edicion1" style="margin-right:20px; margin-top:10px;" data-toggle="modal" data-target="#exampleModalCenter"><img src="./assets/Icons/plus.svg" alt="Bootstrap" width="25" height="25" ></button>
+    </div>
+  </div>
+  <div class="card-bodyexp"  id="tabla-experiencia">
+    <div class="d-flex division" *ngFor="let educacion of miPorfolioEducacion; let indice=index">
+      <div><img [src]="educacion.linkImagen" alt="educacion" style="height: 110px;width:110px;"></div>
+      <div style="width: 100%;">
+        <div class="d-flex justify-content-between" style="width:100%;height: 25px;">
+          <h5  class="edicion1 edicion-hide1"><input type="text" id="txtEducacionInstitucion"></h5>
+          <h5 class="margen">{{educacion.institucion}}</h5>
+          <div>
+            <button (click)="irEditarEducacion(indice,educacion.id)" type="button" style="margin-right:20px; margin-top:10px;" data-toggle="modal" data-target="#modalEdicion" class="btn-editar hide" value={{educacion.id}}><img src="./assets/Icons/pencil.svg" alt="Bootstrap" width="20" height="15"></button>
+            <button (click)="borrarEducacion(educacion.id)" class="btn-editar hide" style="margin-left: -20px;"><img src="./assets/Icons/trash3-fill.svg" alt="Bootstrap" width="20" height="15"></button> 
+          </div>
+        </div>
+        <div class="institucion" style="margin-top: 10px;">
+            <p class="edicion1 edicion-hide1"><input type="text" id="txtEducacionCarrera"></p>
+            <p class="carrera margen">{{educacion.carrera}}</p>
+            <p class="edicion1 edicion-hide1"><input type="text" id="txtEducacionEstado"></p>
+            <p class="estado margen">Estado: {{educacion.estado}}</p>
+            <p class="edicion1 edicion-hide1"><input type="text" id="txtEducacionTiempo"></p>
+            <p class="tiempodesde margen">{{educacion.tiempodesde}} - {{educacion.tiempohasta}}</p>
+        </div> 
+      </div> 
+    </div>
+  </div>
+</div>

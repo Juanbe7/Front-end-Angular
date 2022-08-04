@@ -1,0 +1,28 @@
+.card-body
+{
+    margin-left: 20px;
+    width: 95%;
+}
+div[role="progressbar"] 
+{
+    width: var(--value);
+}
+.progress {
+    margin-bottom: 20px;
+    padding: 0px;
+    height: 25px;
+}
+.progress-bar {
+
+    background-color: #2e94ba;
+}
+.mat-slider.mat-accent .mat-slider-track-fill, .mat-slider.mat-accent .mat-slider-thumb, .mat-slider.mat-accent .mat-slider-thumb-label {
+    background-color: #2e94ba;
+}
+.mat-slider-horizontal {
+    height: 48px;
+    min-width: 128px;
+    margin-top: -6px;
+    margin-left: 20px;
+    width: 70%;
+}

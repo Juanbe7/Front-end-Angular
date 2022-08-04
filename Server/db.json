@@ -1,0 +1,94 @@
+{
+  "perfil": {
+    "nombre": "Juan Bustos",
+    "descripcion": "Desarrollador web full stack"
+  },
+  "educacion": [
+    {
+      "id": 2,
+      "institucion": "Argentina Programa",
+      "linkImagen": "https://yt3.ggpht.com/9upo5zbtXzvItj8IMHF1X9hI95x4YOeGCApLk1DhMQCHftmJvf2GWmbJXrC1TKCrn-AyQ2txBw=s900-c-k-c0x00ffffff-no-rj",
+      "carrera": "Desarrollador full stack Jr",
+      "estado": "Cursando",
+      "tiempodesde": "Febrero 2022",
+      "tiempohasta": "Agosto 2022"
+    },
+    {
+      "id": 3,
+      "institucion": "Oracle - Alura Latam",
+      "linkImagen": "https://cdn2.gnarususercontent.com.br/6/449886/f2b41d57-19f7-494f-96d0-50f56b0ffed7.png",
+      "carrera": "Programacion",
+      "estado": "Cursando",
+      "tiempodesde": "Agosto 2022",
+      "tiempohasta": "Febrero 2022"
+    },
+    {
+      "id": 4,
+      "institucion": "UTN FRVM",
+      "linkImagen": "https://upload.wikimedia.org/wikipedia/commons/6/67/UTN_logo.jpg",
+      "carrera": "Ingenieria Electronica",
+      "estado": "Abandonado",
+      "tiempodesde": "2019",
+      "tiempohasta": "2022"
+    },
+    {
+      "id": 5,
+      "institucion": "UTN FRVM",
+      "linkImagen": "https://upload.wikimedia.org/wikipedia/commons/6/67/UTN_logo.jpg",
+      "carrera": "Tecnicatura universitaria en programacion",
+      "estado": "Cursando",
+      "tiempodesde": "Agosto 2022",
+      "tiempohasta": "Agosto 2024"
+    }
+  ],
+  "habilidades": [
+    {
+      "id": 2,
+      "name": "CSS",
+      "porcentaje": 40
+    },
+    {
+      "id": 3,
+      "name": "Spring Boot",
+      "porcentaje": 60
+    },
+    {
+      "id": 6,
+      "name": "JavaScript",
+      "porcentaje": 70
+    },
+    {
+      "id": 7,
+      "name": "C#",
+      "porcentaje": 50
+    },
+    {
+      "id": 8,
+      "name": "HTML",
+      "porcentaje": 70
+    },
+    {
+      "id": 9,
+      "name": "Java Backend",
+      "porcentaje": 60
+    }
+  ],
+  "proyectos": [
+    {
+      "id": 1,
+      "name": "Liga Catan Morribell",
+      "descripcion": "Tabla clasificatoria del famoso juego \"Catan\"",
+      "link": "ligacatanmb.tk",
+      "linkImagen": "https://www.cazagangas.com.ar/images/juegos/catan.jpg",
+      "fecha": "10/05/2023"
+    },
+    {
+      "id": 2,
+      "name": "dsadsa",
+      "descripcion": "dasdsad",
+      "link": "https://facebook.com",
+      "linkImagen": "dasd",
+      "fecha": "dwqdq"
+    }
+  ]
+}

@@ -1,0 +1,24 @@
+<form [formGroup]="form">
+  <div class="card" style="width: 100%;">
+    <img src="./assets/Sin-título-1.png" class="card-img-top" style="border-radius: 18px 18px 0 0;background-color: #475153"alt="...">
+    <div class="card-body" >
+      <figure>
+        <img src="./assets/perfil-vacio.png"  class="img-perfil" alt="">  
+        <div class="capa"> <img src="./assets/Icons/pencil.svg" alt=""></div>
+      </figure>
+      <div class="d-flex justify-content-between prueba card-title">   
+        <h3 class="" id="nombre" type="text" *ngIf="ocultar == false">{{miPorfolio.nombre}}</h3>
+        <div *ngIf="ocultar == true"><input formControlName="nombre" type="text" id="txtNombre" ngModel="{{miPorfolio.nombre}}"></div>
+        <div>
+          <button (click)="editarNombre()" class="btn-editar hide btnEditarNombre" *ngIf="ocultar == false"><img src="./assets/Icons/pencil.svg" alt="Bootstrap" width="20" height="15" style="margin-top: -10px;"></button>
+          <button (click)="btnAceptar()" class="btn-editar edicion" *ngIf="ocultar == true"><img src="./assets/Icons/check.svg" alt="Bootstrap" width="30" height="30" style="margin-top: -10px;"></button>
+          <button (click)="btnCancelar()" class="btn-editar edicion" *ngIf="ocultar == true" ><img src="./assets/Icons/x.svg" alt="Bootstrap" width="30" height="30" style="margin-top: -10px;"></button>
+        </div>
+      </div>
+      <div class="card-acercade">
+        <p id="acercaDe" class="puesto card-text" style="margin-top:5px;" *ngIf="ocultar == false">{{miPorfolio.descripcion}}</p>
+        <div *ngIf="ocultar == true"><input formControlName="descripcion" type="text" id="txtAcercaDe" class="card-text edicion" ngModel="{{miPorfolio.descripcion}}"></div>
+      </div>
+    </div>
+  </div>
+</form>

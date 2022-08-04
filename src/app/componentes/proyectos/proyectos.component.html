@@ -1,0 +1,96 @@
+<form [formGroup]="form">
+  <div>    
+    <div class="modal fade" id="modalAgregarProyecto" tabindex="-1" role="dialog" aria-labelledby="modalAgregarProyecto" aria-hidden="true">
+      <div class="modal-dialog modal-dialog-centered" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="exampleModalLongTitle">Agregar Proyecto</h5>
+            <button type="button" class="btn-editar" data-dismiss="modal" aria-label="Close">
+              <img src="./assets/Icons/x.svg" alt="Bootstrap" width="30" height="30" style="margin-top: -10px;">
+            </button>
+          </div>
+          <div class="modal-body">
+            <div class="row row-cols-2">
+                <div class="col"><label for="">Titulo: </label></div>
+                <div class="col"><input formControlName="name" type="text" id="txtInstitucion" class="txtModal"></div>
+                <div class="col"><label for="">Descripcion </label></div>
+                <div class="col"><input formControlName="descripcion" type="text" id="txtImagen" class="txtModal"></div>
+                <div class="col"><label for="">Link: </label></div>
+                <div class="col"><input formControlName="link" type="text" id="txtCarrera" class="txtModal"></div>
+                <div class="col"><label for="">Link Imagen: </label></div>
+                <div class="col"><input formControlName="linkImagen" type="text" id="txtEstado" class="txtModal"></div>
+                <div class="col"><label for="">Fecha: </label></div>
+                <div class="col"><input formControlName="fecha" type="text" id="txtDesde" class="txtModal"></div>
+            </div>
+          <div class="modal-footer" style="margin-top: 15px;">
+            <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
+            <button (click)="agregarProyecto()" type="button" class="btn btn-primary" data-dismiss="modal">Guardar</button>
+          </div>
+        </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</form>
+
+<form [formGroup]="form2">
+  <div>    
+    <div class="modal fade" id="modalEditarProyecto" tabindex="-1" role="dialog" aria-labelledby="modalEditarProyecto" aria-hidden="true">
+      <div class="modal-dialog modal-dialog-centered" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="exampleModalLongTitle">Editar Proyecto</h5>
+            <button type="button" class="btn-editar" data-dismiss="modal" aria-label="Close">
+              <img src="./assets/Icons/x.svg" alt="Bootstrap" width="30" height="30" style="margin-top: -10px;">
+            </button>
+          </div>
+          <div class="modal-body">
+            <div class="row row-cols-2">
+                <div class="col"><label for="">Titulo: </label></div>
+                <div class="col"><input formControlName="name" type="text" id="txtInstitucion" class="txtModal" ngModel="{{edicionProyecto.name}}"></div>
+                <div class="col"><label for="">Descripcion </label></div>
+                <div class="col"><input formControlName="descripcion" type="text" id="txtImagen" class="txtModal" ngModel="{{edicionProyecto.descripcion}}"></div>
+                <div class="col"><label for="">Link: </label></div>
+                <div class="col"><input formControlName="link" type="text" id="txtCarrera" class="txtModal" ngModel="{{edicionProyecto.link}}"></div>
+                <div class="col"><label for="">Link Imagen: </label></div>
+                <div class="col"><input formControlName="linkImagen" type="text" id="txtEstado" class="txtModal" ngModel="{{edicionProyecto.linkImagen}}"></div>
+                <div class="col"><label for="">Fecha: </label></div>
+                <div class="col"><input formControlName="fecha" type="text" id="txtDesde" class="txtModal" ngModel="{{edicionProyecto.fecha}}"></div>
+            </div>
+          <div class="modal-footer" style="margin-top: 15px;">
+            <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
+            <button (click)="editarProyecto()" type="button" class="btn btn-primary" data-dismiss="modal">Guardar</button>
+          </div>
+        </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</form>
+
+<div class="card" style="width: 100%;">
+    <div class="d-flex justify-content-between">
+      <h4 class="titulo">Proyectos </h4>
+      <button type="button" class="btn-editar edicion1" style="margin-right:20px; margin-top:10px;" data-toggle="modal" data-target="#modalAgregarProyecto"><img src="./assets/Icons/plus.svg" alt="Bootstrap" width="25" height="25" ></button>
+    </div>
+    <div class="card-bodyexp">
+      <div class="d-flex division" *ngFor="let proyecto of miPorfolioProyectos;let indice=index">
+        <div><img [src]="proyecto.linkImagen" alt="proyecto" style="height: 100px;width:100px;"></div>
+        <div style="width: 100%;">
+          <div class="d-flex justify-content-between" style="width:100%;height: 25px;">
+            <h5  class="edicion1 edicion-hide1"><input type="text" id="txtEducacionInstitucion"></h5>
+            <h5 class="margen" style="margin-left: 15px;">{{proyecto.name}}</h5>
+            <div>
+              <button (click)="irEditarProyecto(indice,proyecto.id)"  type="button" style="margin-right:20px; margin-top:10px;" data-toggle="modal" data-target="#modalEditarProyecto" class="btn-editar hide" value={{proyecto.id}}><img src="./assets/Icons/pencil.svg" alt="Bootstrap" width="20" height="15"></button>
+              <button (click)="borrarProyecto(proyecto.id)" class="btn-editar hide" style="margin-left: -20px;"><img src="./assets/Icons/trash3-fill.svg" alt="Bootstrap" width="20" height="15"></button>  
+            </div>
+        </div>
+          <div class="institucion" style="margin-top: 5px;margin-left: 15px;">
+            <p class="estado margen">Descripcion: {{proyecto.descripcion}}</p>
+            <p class="margen">Link: <a *ngIf="proyecto.link.includes('http')" href="{{proyecto.link}}">{{proyecto.link}}</a> <a *ngIf="!proyecto.link.includes('http')" href="http://{{proyecto.link}}">{{proyecto.link}}</a></p>
+            <p class="tiempodesde margen">{{proyecto.fecha}}</p>
+          </div> 
+        </div> 
+      </div>
+    </div>
+</div>

@@ -1,0 +1,96 @@
+{
+    "perfil":
+      {
+        "id": 1,
+        "nombre": "Park Row at Beekman St",
+        "descripcion": "38 Park Row",
+        "imagen":""
+      }
+    ,
+    "educacion": [
+      {
+        "id": 1,
+        "institucion": "Books",
+        "linkfoto":"",
+        "carrera":"",
+        "tiempodesde":"",
+        "tiempohasta":""
+      },
+      {
+        "id": 2,
+        "institucion": "Books",
+        "linkfoto":"",
+        "carrera":"",
+        "tiempodesde":"",
+        "tiempohasta":""
+      },
+      {
+        "id": 3,
+        "institucion": "Books",
+        "linkfoto":"",
+        "carrera":"",
+        "tiempodesde":"",
+        "tiempohasta":""
+      }
+    ],
+    "habilidades": [
+      {
+        "id": 1,
+        "name": "Essential TypeScript 4: From Beginner to Pro",
+        "porcentaje": 45
+      },
+      {
+        "id": 2,
+        "name": "Essential TypeScript 4: From Beginner to Pro",
+        "porcentaje": 45
+      },
+      {
+        "id": 3,
+        "name": "Essential TypeScript 4: From Beginner to Pro",
+        "porcentaje": 45
+      },
+      {
+        "id": 4,
+        "name": "Essential TypeScript 4: From Beginner to Pro",
+        "porcentaje": 45
+      },
+      {
+        "id": 5,
+        "name": "Essential TypeScript 4: From Beginner to Pro",
+        "porcentaje": 45
+      },
+      {
+        "id": 6,
+        "name": "Essential TypeScript 4: From Beginner to Pro",
+        "porcentaje": 45
+      },
+      {
+        "id": 7,
+        "name": "Essential TypeScript 4: From Beginner to Pro",
+        "porcentaje": 45
+      },
+      {
+        "id": 8,
+        "name": "Essential TypeScript 4: From Beginner to Pro",
+        "porcentaje": 45
+      }
+    ],
+    "orders": [
+      {
+        "id": 1,
+        "name": "Dominicode",
+        "date": "01/12/1995",
+        "shippingAddress": "Av. de la Granvia de Hospitalet, 115",
+        "city": "Barcelona",
+        "pickup": true
+      }
+    ],
+    "detailsOrders": [
+      {
+        "id": 1,
+        "orderId": 1,
+        "quantity": 10,
+        "productName": "Product name"
+      }
+    ]
+  }
