@@ -26,7 +26,7 @@ export class PortfolioService {
     return this.httpRequeset.put(url,datos);
   }
 
-  private sharingObservablePrivate: BehaviorSubject<boolean> = new BehaviorSubject<boolean>(false);
+  private sharingObservablePrivate: BehaviorSubject<boolean> = new BehaviorSubject<boolean>(true);
 
   get sharingObservable()
   {

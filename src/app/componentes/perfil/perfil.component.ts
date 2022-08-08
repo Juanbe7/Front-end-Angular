@@ -18,8 +18,8 @@ export class PerfilComponent implements OnInit {
   { 
     this.data$=datosPortfolio.sharingObservable;
     this.form=this.formBuilder.group({
-      nombre:'',
-      descripcion:''
+      nombre:['',[Validators.required]],
+      descripcion:['',[Validators.required]]
     })
   }
 
