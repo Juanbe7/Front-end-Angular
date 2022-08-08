@@ -1215,23 +1215,25 @@ progress {
 
 .img-perfil
 {
-  width: 150px;
-  height: 150px;
+  /* width: 150px;
+  height: 150px; */
+  width: 100%;
+  height: 100%;
   border:2px solid black;
   border-radius: 50%;
   margin-top: -90px;
   margin-left: 30px;
 }
 figure{
-  width: 150px;
+  width: 11.9%;
   border-radius: 50%;
   cursor: pointer;
   position: relative;
 }
 figure .capa{
   border-radius: 50%;
-  width: 150px;
-  height: 150px;
+  width: 100.12%;
+  height: 249%;
   position: absolute;
   top: -90px;
   left: 30px;

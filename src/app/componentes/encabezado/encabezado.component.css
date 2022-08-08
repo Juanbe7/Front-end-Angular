@@ -1,0 +1,51 @@
+.redes
+{
+    margin-right: -30px;
+}
+
+.btn-warning {
+  color: #000;
+  background-color: #2e94ba;
+  border-color: #2e94ba;
+}
+
+.btn-warning:hover {
+  color: #000;
+  background-color: #3e97b8;
+  border-color: #459bbb;
+}
+
+  .btn-warning:focus {
+  color: #000;
+  background-color: #3e97b8;
+  border-color: #459bbb;
+  -webkit-box-shadow: 0 0 0 0.15rem rgba(84, 177, 180, 0.5);
+          box-shadow: 0 0 0 0.15rem rgba(84, 177, 180, 0.5);
+}
+
+  .btn-warning:active {
+  color: #000;
+  background-color: #3e97b8;
+  border-color: #459bbb;
+}
+
+  .btn-warning:active:focus {
+  -webkit-box-shadow: 0 0 0 0.15rem rgba(84, 177, 180, 0.5);
+          box-shadow: 0 0 0 0.15rem rgba(84, 177, 180, 0.5);
+}
+
+.btn-warning:disabled {
+  color: #000;
+  background-color: #2e94ba;
+  border-color: #2e94ba;
+}
+.form-group
+{
+  margin-bottom: 5px;
+}
+.errores
+{
+  height: 25px;
+  margin-top: 0px;
+  margin-bottom: 5px;
+}

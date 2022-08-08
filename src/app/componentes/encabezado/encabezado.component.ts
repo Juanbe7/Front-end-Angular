@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
 import { Observable } from 'rxjs';
 import {PortfolioService} from 'src/app/servicios/portfolio.service';
 
@@ -11,12 +12,16 @@ export class EncabezadoComponent implements OnInit {
 
   esconder:boolean=true;
   data$: Observable<boolean>;
-  constructor(public sharingService:PortfolioService) {
+  formLogin:FormGroup;
+  constructor(public sharingService:PortfolioService, private formBuilder:FormBuilder) {
     this.data$ = sharingService.sharingObservable;
+    this.formLogin=this.formBuilder.group({
+      email:['',[Validators.required,Validators.email]],
+      contraseña:['',[Validators.required,Validators.minLength(8)]]
+    });
    }
 
-  ngOnInit(): void {
-  }
+  ngOnInit(): void {}
 
   modoEdicion()
   {
@@ -32,4 +37,15 @@ export class EncabezadoComponent implements OnInit {
       this.sharingService.sharingObservableData=true;
     }
   }
+
+  get Email()
+  {
+    return this.formLogin.get('email');
+  }
+
+  get Pass()
+  {
+    return this.formLogin.get('contraseña');
+  }
+
 }

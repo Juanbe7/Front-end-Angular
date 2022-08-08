@@ -6,13 +6,47 @@
             <li class="nav-link px-2 text-white"><img src="./assets/Icons/terminal.svg" alt="Bootstrap" width="30" height="30" style="margin-top:-2px;margin-right:5px">  Argentina Programa - #YoProgramo</li>
           </ul>   
         </div> 
-        <div class="text-end">
-          <button type="button" onclick="var win = window.open('https://www.instagram.com/juanbe6/'); win.focus();" class="btn-redes"><img src="./assets/Icons/instagram.svg" alt="instagram" width="20" height="20"></button>
+        <div class="text-end d-flex">
+          <div class="redes">
+            <button type="button" onclick="var win = window.open('https://www.instagram.com/juanbe6/'); win.focus();" class="btn-redes"><img src="./assets/Icons/instagram.svg" alt="instagram" width="20" height="20"></button>
           <button type="button" onclick="var win = window.open('https://www.facebook.com/juanyto55');win.focus();" class="btn-redes"><img src="./assets/Icons/facebook.svg" alt="Facebook" width="20" height="20"></button>
           <button type="button" onclick="var win = window.open('https://www.linkedin.com/in/juan-bustos-91341b186/');win.focus();" class="btn-redes"><img src="./assets/Icons/linkedin.svg" alt="Linkedin" width="20" height="20"></button>
-          <button  (click)="modoEdicion()" type="button" class="btn btn-warning" style="margin-left: 50px;">Login</button>
+          </div>
+          <div class="dropdown">
+            <button  type="button" class="btn btn-warning dropdown-toggle" data-toggle="dropdown" id="dropdownMenuButton" aria-haspopup="true" aria-expanded="false" style="margin-left: 50px;">Login</button>
+            <div class="dropdown-menu bg-dark text-white"  style="margin-right: 95px; width: 300px;">
+              <form class="px-4 py-3" [formGroup]="formLogin">
+                <div class="form-group">
+                  <label for="exampleDropdownFormEmail1">Email</label>
+                  <input type="email" class="form-control" id="exampleDropdownFormEmail1" placeholder="email@example.com" formControlName="email">
+                </div>
+                <div *ngIf="Email?.errors && Email?.touched" class="errores">
+                  <p *ngIf="Email?.hasError('required')" class="text-danger">Email requerido</p>
+                  <p *ngIf="Email?.hasError('email')" class="text-danger">El formato del email es invalido</p>
+                </div>
+                <div class="form-group">
+                  <label for="exampleDropdownFormPassword1">Contraseña</label>
+                  <input type="password" class="form-control" id="exampleDropdownFormPassword1" placeholder="Password" formControlName="contraseña">                     
+                </div> 
+                <div *ngIf="Pass?.errors && Pass?.touched" class="errores" style="height: 45px;">
+                  <p class="errores" *ngIf="Pass?.hasError('required')" class="text-danger">Contraseña requerida</p>
+                  <p class="errores" *ngIf="Pass?.hasError('minlength')"class="text-danger">La contraseña debe tener un tamaño de 8 caracteres</p>
+                </div>  
+                <div class="form-check">
+                  <input type="checkbox" class="form-check-input" id="dropdownCheck">
+                  <label class="form-check-label" for="dropdownCheck">
+                    Recordarme
+                  </label>
+                </div>
+                <div style="margin-top:10px ;">
+                  <button (click)="modoEdicion()" [disabled]="!Email?.valid&&!Pass?.valid" type="submit" class="btn btn-warning">Sign in</button>
+                </div>
+              </form>
+            </div>
+          </div> 
         </div>
       </div>
     </div>
   </header>
+
 
