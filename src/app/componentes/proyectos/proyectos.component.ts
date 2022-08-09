@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FormBuilder, FormGroup } from '@angular/forms';
+import { FormBuilder, FormGroup, FormControl, Validators } from '@angular/forms';
 import { Observable } from 'rxjs';
 import { PortfolioService } from 'src/app/servicios/portfolio.service';
 
@@ -28,19 +28,19 @@ export class ProyectosComponent implements OnInit {
     this.data$=datosPortfolio.sharingObservable;
     this.form=this.formBuilder.group({
       id:'',
-      name:'',
-      descripcion:"",
-      link:'',
-      linkImagen:'',
-      fecha:'',
+      name:new FormControl('',Validators.compose([Validators.required])),
+      descripcion:new FormControl('',Validators.compose([Validators.required])),
+      link:new FormControl('',Validators.compose([Validators.required])),
+      linkImagen:new FormControl('',Validators.compose([Validators.required])),
+      fecha:new FormControl('',Validators.compose([Validators.required])),
     })
     this.form2=this.formBuilder.group({
       id:'',
-      name:'',
-      descripcion:"",
-      link:'',
-      linkImagen:'',
-      fecha:'',
+      name:new FormControl('',Validators.compose([Validators.required])),
+      descripcion:new FormControl('',Validators.compose([Validators.required])),
+      link:new FormControl('',Validators.compose([Validators.required])),
+      linkImagen:new FormControl('',Validators.compose([Validators.required])),
+      fecha:new FormControl('',Validators.compose([Validators.required])),
     })
   }
 

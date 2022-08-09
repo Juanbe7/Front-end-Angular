@@ -26,3 +26,8 @@ div[role="progressbar"]
     margin-left: 20px;
     width: 70%;
 }
+.error
+{
+    font-size: small;
+    margin-left: 20px;
+}

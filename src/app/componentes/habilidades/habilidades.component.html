@@ -15,14 +15,18 @@
               <div class="col text-center"><label for="">Porcentaje</label></div>
             </div>
              <div class="row row-cols-2" >
-              <div><input formControlName="name" type="text" id="txtInstitucion" class="txtModal" ngModel="{{edicionHabilidad.name}}"></div>
+              <div><input formControlName="name" type="text" class="txtModal" ngModel="{{edicionHabilidad.name}}">
+                <div class="error" *ngIf="form.get('name')?.invalid&&(form.get('name')?.touched || form.get('name')?.dirty)">
+                  <span *ngIf="form.get('name')?.hasError('required')" class="text-danger">*Este campo es requerido</span>
+                </div>
+              </div>
               <!-- <input *ngIf="true" formControlName="id" type="number" ngModel="{{indice}}"> -->
               <div class="col"><mat-slider formControlName="porcentaje" min="0" max="100" step="10" [(value)]="value" thumbLabel></mat-slider>{{value}}</div> 
               <!-- <mat-slider min="1" max="100" step="1" [value]="habilidadEdicion.porcentaje" (change)="habilidadEdicion.porcentaje = $event.value"></mat-slider>{{habilidadEdicion.porcentaje}} --> 
             </div> 
           <div class="modal-footer" style="margin-top: 15px; margin-bottom: -10px;">
             <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
-            <button (click)="editarHabilidad()" type="button" class="btn btn-primary" data-dismiss="modal">Editar</button>
+            <button (click)="editarHabilidad()" [disabled]="form.get('name')?.invalid" type="button" class="btn btn-primary" data-dismiss="modal">Editar</button>
           </div>
         </div>
         </div>
@@ -48,14 +52,18 @@
               <div class="col text-center"><label for="">Porcentaje</label></div>
             </div>
              <div class="row row-cols-2" >
-              <div><input formControlName="name" type="text" id="txtInstitucion" class="txtModal" placeholder="Habilidad"></div>
+              <div><input formControlName="name" type="text" id="txtInstitucion" class="txtModal" placeholder="Habilidad">
+                <div class="error" *ngIf="form2.get('name')?.invalid&&(form2.get('name')?.touched || form2.get('name')?.dirty)">
+                  <span *ngIf="form2.get('name')?.hasError('required')" class="text-danger">*Este campo es requerido</span>
+                </div>
+              </div>
               <!-- <input *ngIf="true" formControlName="id" type="number" ngModel="{{indice}}"> -->
               <div class="col"><mat-slider formControlName="porcentaje" min="0" max="100" step="10" [(value)]="value" thumbLabel></mat-slider>{{value}}</div> 
               <!-- <mat-slider min="1" max="100" step="1" [value]="habilidadEdicion.porcentaje" (change)="habilidadEdicion.porcentaje = $event.value"></mat-slider>{{habilidadEdicion.porcentaje}} --> 
             </div> 
           <div class="modal-footer" style="margin-top: 15px; margin-bottom: -10px;">
             <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
-            <button (click)="agregarHabilidad()" type="button" class="btn btn-primary" data-dismiss="modal">Editar</button>
+            <button (click)="agregarHabilidad()" [disabled]="form2.get('name')?.invalid" type="button" class="btn btn-primary" data-dismiss="modal">Editar</button>
           </div>
         </div>
         </div>

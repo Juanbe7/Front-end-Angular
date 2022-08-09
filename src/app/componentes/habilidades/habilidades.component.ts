@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { PortfolioService } from 'src/app/servicios/portfolio.service';
-import { FormBuilder, FormGroup } from '@angular/forms';
+import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
 import { Observable } from 'rxjs';
 
 @Component({
@@ -19,7 +19,7 @@ export class HabilidadesComponent implements OnInit {
   edicionHabilidad=
   {
     id:'',
-    name:'',
+    name: '',
     porcentaje:''
   };
   constructor(private datosPortfolio:PortfolioService, private formBuilder:FormBuilder)
@@ -27,12 +27,12 @@ export class HabilidadesComponent implements OnInit {
     this.data$ = datosPortfolio.sharingObservable
     this.form=this.formBuilder.group({
       id:'',
-      name:'',
+      name:new FormControl('',Validators.compose([Validators.required])),
       porcentaje:""
     })
     this.form2=this.formBuilder.group({
       id:'',
-      name:'',
+      name:new FormControl('',Validators.compose([Validators.required])),
       porcentaje:""
     })
   }

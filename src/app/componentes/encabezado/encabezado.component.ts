@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
 import { Observable } from 'rxjs';
+import { AutenticacionService } from 'src/app/servicios/autenticacion.service';
 import {PortfolioService} from 'src/app/servicios/portfolio.service';
 
 @Component({
@@ -13,11 +14,16 @@ export class EncabezadoComponent implements OnInit {
   esconder:boolean=true;
   data$: Observable<boolean>;
   formLogin:FormGroup;
-  constructor(public sharingService:PortfolioService, private formBuilder:FormBuilder) {
+  constructor(public sharingService:PortfolioService, private formBuilder:FormBuilder, private autenticacionService:AutenticacionService) {
     this.data$ = sharingService.sharingObservable;
     this.formLogin=this.formBuilder.group({
       email:['',[Validators.required,Validators.email]],
-      contraseña:['',[Validators.required,Validators.minLength(8)]]
+      contraseña:['',[Validators.required,Validators.minLength(8)]],
+      deviceInfo:this.formBuilder.group({
+        deviceId:'',
+        deviceType:'',
+        notificationToken:''
+      })
     });
    }
 
@@ -46,6 +52,15 @@ export class EncabezadoComponent implements OnInit {
   get Pass()
   {
     return this.formLogin.get('contraseña');
+  }
+
+  onEvent(event:Event)
+  {
+    event.preventDefault;
+    this.autenticacionService.IniciarSesion(this.formLogin.value).subscribe(data=>
+      {
+        console.log("data"+ JSON.stringify(data));
+      })
   }
 
 }

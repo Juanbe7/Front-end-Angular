@@ -12,19 +12,39 @@
           <div class="modal-body">
             <div class="row row-cols-2">
                 <div class="col"><label for="">Titulo: </label></div>
-                <div class="col"><input formControlName="name" type="text" id="txtInstitucion" class="txtModal"></div>
+                <div class="col"><input formControlName="name" type="text" class="txtModal">
+                  <div class="error" *ngIf="form.get('name')?.invalid&&(form.get('name')?.touched || form.get('name')?.dirty)">
+                    <span *ngIf="form.get('name')?.hasError('required')" class="text-danger">*Este campo es requerido</span>
+                  </div>
+                </div>
                 <div class="col"><label for="">Descripcion </label></div>
-                <div class="col"><input formControlName="descripcion" type="text" id="txtImagen" class="txtModal"></div>
+                <div class="col"><input formControlName="descripcion" type="text" class="txtModal">
+                  <div class="error" *ngIf="form.get('descripcion')?.invalid&&(form.get('descripcion')?.touched || form.get('descripcion')?.dirty)">
+                    <span *ngIf="form.get('descripcion')?.hasError('required')" class="text-danger">*Este campo es requerido</span>
+                  </div>
+                </div>
                 <div class="col"><label for="">Link: </label></div>
-                <div class="col"><input formControlName="link" type="text" id="txtCarrera" class="txtModal"></div>
+                <div class="col"><input formControlName="link" type="text" class="txtModal">
+                  <div class="error" *ngIf="form.get('link')?.invalid&&(form.get('link')?.touched || form.get('link')?.dirty)">
+                    <span *ngIf="form.get('link')?.hasError('required')" class="text-danger">*Este campo es requerido</span>
+                  </div>
+                </div>
                 <div class="col"><label for="">Link Imagen: </label></div>
-                <div class="col"><input formControlName="linkImagen" type="text" id="txtEstado" class="txtModal"></div>
+                <div class="col"><input formControlName="linkImagen" type="text" class="txtModal">
+                  <div class="error" *ngIf="form.get('linkImagen')?.invalid&&(form.get('linkImagen')?.touched || form.get('linkImagen')?.dirty)">
+                    <span *ngIf="form.get('linkImagen')?.hasError('required')" class="text-danger">*Este campo es requerido</span>
+                  </div>
+                </div>
                 <div class="col"><label for="">Fecha: </label></div>
-                <div class="col"><input formControlName="fecha" type="text" id="txtDesde" class="txtModal"></div>
+                <div class="col"><input formControlName="fecha" type="text" class="txtModal">
+                  <div class="error" *ngIf="form.get('fecha')?.invalid&&(form.get('fecha')?.touched || form.get('fecha')?.dirty)">
+                    <span *ngIf="form.get('fecha')?.hasError('required')" class="text-danger">*Este campo es requerido</span>
+                  </div>
+                </div>
             </div>
           <div class="modal-footer" style="margin-top: 15px;">
             <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
-            <button (click)="agregarProyecto()" type="button" class="btn btn-primary" data-dismiss="modal">Guardar</button>
+            <button (click)="agregarProyecto()" [disabled]="form.get('fecha')?.invalid || form.get('name')?.invalid ||form.get('link')?.invalid ||form.get('descripcion')?.invalid || form.get('linkImagen')?.invalid" type="button" class="btn btn-primary" data-dismiss="modal">Guardar</button>
           </div>
         </div>
         </div>
@@ -47,19 +67,39 @@
           <div class="modal-body">
             <div class="row row-cols-2">
                 <div class="col"><label for="">Titulo: </label></div>
-                <div class="col"><input formControlName="name" type="text" id="txtInstitucion" class="txtModal" ngModel="{{edicionProyecto.name}}"></div>
+                <div class="col"><input formControlName="name" type="text" class="txtModal" ngModel="{{edicionProyecto.name}}">
+                  <div class="error" *ngIf="form2.get('name')?.invalid&&(form2.get('name')?.touched || form2.get('name')?.dirty)">
+                    <span *ngIf="form2.get('name')?.hasError('required')" class="text-danger">*Este campo es requerido</span>
+                  </div>
+                </div>
                 <div class="col"><label for="">Descripcion </label></div>
-                <div class="col"><input formControlName="descripcion" type="text" id="txtImagen" class="txtModal" ngModel="{{edicionProyecto.descripcion}}"></div>
+                <div class="col"><input formControlName="descripcion" type="text" class="txtModal" ngModel="{{edicionProyecto.descripcion}}">
+                  <div class="error" *ngIf="form2.get('descripcion')?.invalid&&(form2.get('descripcion')?.touched || form2.get('descripcion')?.dirty)">
+                    <span *ngIf="form2.get('descripcion')?.hasError('required')" class="text-danger">*Este campo es requerido</span>
+                  </div>
+                </div>
                 <div class="col"><label for="">Link: </label></div>
-                <div class="col"><input formControlName="link" type="text" id="txtCarrera" class="txtModal" ngModel="{{edicionProyecto.link}}"></div>
+                <div class="col"><input formControlName="link" type="text"  class="txtModal" ngModel="{{edicionProyecto.link}}">
+                  <div class="error" *ngIf="form2.get('link')?.invalid&&(form2.get('link')?.touched || form2.get('link')?.dirty)">
+                    <span *ngIf="form2.get('link')?.hasError('required')" class="text-danger">*Este campo es requerido</span>
+                  </div>
+                </div>
                 <div class="col"><label for="">Link Imagen: </label></div>
-                <div class="col"><input formControlName="linkImagen" type="text" id="txtEstado" class="txtModal" ngModel="{{edicionProyecto.linkImagen}}"></div>
+                <div class="col"><input formControlName="linkImagen" type="text"  class="txtModal" ngModel="{{edicionProyecto.linkImagen}}">
+                  <div class="error" *ngIf="form2.get('linkImagen')?.invalid&&(form2.get('linkImagen')?.touched || form2.get('linkImagen')?.dirty)">
+                    <span *ngIf="form2.get('linkImagen')?.hasError('required')" class="text-danger">*Este campo es requerido</span>
+                  </div>
+                </div>
                 <div class="col"><label for="">Fecha: </label></div>
-                <div class="col"><input formControlName="fecha" type="text" id="txtDesde" class="txtModal" ngModel="{{edicionProyecto.fecha}}"></div>
+                <div class="col"><input formControlName="fecha" type="text"  class="txtModal" ngModel="{{edicionProyecto.fecha}}">
+                  <div class="error" *ngIf="form2.get('fecha')?.invalid&&(form2.get('fecha')?.touched || form2.get('fecha')?.dirty)">
+                    <span *ngIf="form2.get('fecha')?.hasError('required')" class="text-danger">*Este campo es requerido</span>
+                  </div>
+                </div>
             </div>
           <div class="modal-footer" style="margin-top: 15px;">
             <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
-            <button (click)="editarProyecto()" type="button" class="btn btn-primary" data-dismiss="modal">Guardar</button>
+            <button (click)="editarProyecto()" [disabled]="form2.get('fecha')?.invalid || form2.get('name')?.invalid ||form2.get('link')?.invalid ||form2.get('descripcion')?.invalid || form2.get('linkImagen')?.invalid" type="button" class="btn btn-primary" data-dismiss="modal">Guardar</button>
           </div>
         </div>
         </div>

@@ -12,21 +12,45 @@
           <div class="modal-body">
             <div class="row row-cols-2">
                 <div class="col"><label for="">Institucion: </label></div>
-                <div class="col"><input formControlName="institucion"  type="text" class="txtModal"></div>
+                <div class="col"><input formControlName="institucion"  type="text" class="txtModal">
+                  <div class="error" *ngIf="form.get('institucion')?.invalid&&(form.get('institucion')?.touched || form.get('institucion')?.dirty)">
+                    <span *ngIf="form.get('institucion')?.hasError('required')" class="text-danger">*Este campo es requerido</span>
+                  </div>
+                </div>
                 <div class="col"><label for="">Link de imagen: </label></div>
-                <div class="col"><input formControlName="linkImagen"  type="text" class="txtModal"></div>
+                <div class="col"><input formControlName="linkImagen"  type="text" class="txtModal">
+                  <div class="error" *ngIf="form.get('linkImagen')?.invalid&&(form.get('linkImagen')?.touched || form.get('linkImagen')?.dirty)">
+                    <span *ngIf="form.get('linkImagen')?.hasError('required')" class="text-danger">*Este campo es requerido</span>
+                  </div>
+                </div>
                 <div class="col"><label for="">Carrera: </label></div>
-                <div class="col"><input formControlName="carrera" type="text" class="txtModal"></div>
+                <div class="col"><input formControlName="carrera" type="text" class="txtModal">
+                  <div class="error" *ngIf="form.get('carrera')?.invalid&&(form.get('carrera')?.touched || form.get('carrera')?.dirty)">
+                    <span *ngIf="form.get('carrera')?.hasError('required')" class="text-danger">*Este campo es requerido</span>
+                  </div>
+                </div>
                 <div class="col"><label for="">Estado: </label></div>
-                <div class="col"><input formControlName="estado"  type="text" class="txtModal"></div>
+                <div class="col"><input formControlName="estado"  type="text" class="txtModal">
+                  <div class="error" *ngIf="form.get('estado')?.invalid&&(form.get('estado')?.touched || form.get('estado')?.dirty)">
+                    <span *ngIf="form.get('estado')?.hasError('required')" class="text-danger">*Este campo es requerido</span>
+                  </div>
+                </div>
                 <div class="col"><label for="">Año ingreso: </label></div>
-                <div class="col"><input formControlName="tiempodesde"  type="text" class="txtModal"></div>
+                <div class="col"><input formControlName="tiempodesde"  type="text" class="txtModal">
+                  <div class="error" *ngIf="form.get('tiempodesde')?.invalid&&(form.get('tiempodesde')?.touched || form.get('tiempodesde')?.dirty)">
+                    <span *ngIf="form.get('tiempodesde')?.hasError('required')" class="text-danger">*Este campo es requerido</span>
+                  </div>
+                </div>
                 <div class="col"><label for="">Año egreso: </label></div>
-                <div class="col"><input formControlName="tiempohasta"  type="text" class="txtModal"></div>
+                <div class="col"><input formControlName="tiempohasta"  type="text" class="txtModal">
+                  <div class="error" *ngIf="form.get('tiempohasta')?.invalid&&(form.get('tiempohasta')?.touched || form.get('tiempohasta')?.dirty)">
+                    <span *ngIf="form.get('tiempohasta')?.hasError('required')" class="text-danger">*Este campo es requerido</span>
+                  </div>
+                </div>
             </div>
           <div class="modal-footer" style="margin-top: 15px;">
             <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
-            <button (click)="agregarEducacion()" type="button" class="btn btn-primary" data-dismiss="modal">Guardar</button>
+            <button (click)="agregarEducacion()" [disabled]=" ((form.get('institucion')?.invalid )|| (form.get('carrera')?.invalid) || (form.get('estado')?.invalid) || (form.get('tiempodesde')?.invalid) || (form.get('tiempohasta')?.invalid))" type="button" class="btn btn-primary" data-dismiss="modal">Guardar</button>
           </div>
         </div>
         </div>
@@ -49,21 +73,45 @@
           <div class="modal-body">
             <div class="row row-cols-2">
                 <div class="col"><label for="">Institucion: </label></div>
-                <div class="col"><input formControlName="institucion" type="text" class="txtModal" ngModel="{{edicionEducacion.institucion}}"></div>
+                <div class="col"><input formControlName="institucion" type="text" class="txtModal" ngModel="{{edicionEducacion.institucion}}">
+                  <div class="error" *ngIf="form1.get('institucion')?.invalid&&(form1.get('institucion')?.touched || form1.get('institucion')?.dirty)">
+                    <span *ngIf="form1.get('institucion')?.hasError('required')" class="text-danger">*Este campo es requerido</span>
+                  </div>
+                </div>
                 <div class="col"><label for="">Link de imagen: </label></div>
-                <div class="col"><input formControlName="linkImagen" type="text" class="txtModal" ngModel="{{edicionEducacion.linkImagen}}"></div>
+                <div class="col"><input formControlName="linkImagen" type="text" class="txtModal" ngModel="{{edicionEducacion.linkImagen}}">
+                  <div class="error" *ngIf="form1.get('linkImagen')?.invalid&&(form1.get('linkImagen')?.touched || form1.get('linkImagen')?.dirty)">
+                    <span *ngIf="form1.get('linkImagen')?.hasError('required')" class="text-danger">*Este campo es requerido</span>
+                  </div>
+                </div>
                 <div class="col"><label for="">Carrera: </label></div>
-                <div class="col"><input formControlName="carrera" type="text" class="txtModal" ngModel="{{edicionEducacion.carrera}}"></div>
+                <div class="col"><input formControlName="carrera" type="text" class="txtModal" ngModel="{{edicionEducacion.carrera}}">
+                  <div class="error" *ngIf="form1.get('carrera')?.invalid&&(form1.get('carrera')?.touched || form1.get('carrera')?.dirty)">
+                    <span *ngIf="form1.get('carrera')?.hasError('required')" class="text-danger">*Este campo es requerido</span>
+                  </div>
+                </div>
                 <div class="col"><label for="">Estado: </label></div>
-                <div class="col"><input formControlName="estado" type="text" class="txtModal" ngModel="{{edicionEducacion.estado}}"></div>
+                <div class="col"><input formControlName="estado" type="text" class="txtModal" ngModel="{{edicionEducacion.estado}}">
+                  <div class="error" *ngIf="form1.get('estado')?.invalid&&(form1.get('estado')?.touched || form1.get('estado')?.dirty)">
+                    <span *ngIf="form1.get('estado')?.hasError('required')" class="text-danger">*Este campo es requerido</span>
+                  </div>
+                </div>
                 <div class="col"><label for="">Año ingreso: </label></div>
-                <div class="col"><input formControlName="tiempodesde" type="text" class="txtModal" ngModel="{{edicionEducacion.tiempodesde}}"></div>
+                <div class="col"><input formControlName="tiempodesde" type="text" class="txtModal" ngModel="{{edicionEducacion.tiempodesde}}">
+                  <div class="error" *ngIf="form1.get('tiempodesde')?.invalid&&(form1.get('tiempodesde')?.touched || form1.get('tiempodesde')?.dirty)">
+                    <span *ngIf="form1.get('tiempodesde')?.hasError('required')" class="text-danger">*Este campo es requerido</span>
+                  </div>
+                </div>
                 <div class="col"><label for="">Año egreso: </label></div>
-                <div class="col"><input formControlName="tiempohasta" type="text" class="txtModal" ngModel="{{edicionEducacion.tiempohasta}}"></div>
+                <div class="col"><input formControlName="tiempohasta" type="text" class="txtModal" ngModel="{{edicionEducacion.tiempohasta}}">
+                  <div class="error" *ngIf="form1.get('tiempohasta')?.invalid&&(form1.get('tiempohasta')?.touched || form1.get('tiempohasta')?.dirty)">
+                    <span *ngIf="form1.get('tiempohasta')?.hasError('required')" class="text-danger">*Este campo es requerido</span>
+                  </div>
+                </div>
             </div>
           <div class="modal-footer" style="margin-top: 15px;">
             <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
-            <button (click)="editarEducacion()" type="button" class="btn btn-primary" data-dismiss="modal">Editar</button>
+            <button (click)="editarEducacion()" [disabled]=" ((form1.get('institucion')?.invalid )|| (form1.get('carrera')?.invalid) || (form1.get('estado')?.invalid) || (form1.get('tiempodesde')?.invalid) || (form1.get('tiempohasta')?.invalid))" type="button" class="btn btn-primary" data-dismiss="modal">Editar</button>
           </div>
         </div>
         </div>

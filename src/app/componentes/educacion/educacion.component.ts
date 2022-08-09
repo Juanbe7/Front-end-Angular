@@ -29,22 +29,22 @@ export class EducacionComponent implements OnInit {
   {
     this.data$ = datosPortfolio.sharingObservable;
     this.form=this.formBuilder.group({
-      id:'',
-      institucion:'',
-      linkImagen:"",
-      carrera:'',
-      estado:'',
-      tiempodesde:'',
-      tiempohasta:''
+      id: '',
+      institucion: new FormControl('',Validators.compose([Validators.required])),
+      linkImagen:new FormControl('',Validators.compose([Validators.required])),
+      carrera:new FormControl('',Validators.compose([Validators.required])),
+      estado:new FormControl('',Validators.compose([Validators.required])),
+      tiempodesde:new FormControl('',Validators.compose([Validators.required])),
+      tiempohasta:new FormControl('',Validators.compose([Validators.required])),
     })
     this.form1=this.formBuilder.group({
       id:'',
-      institucion:'',
-      linkImagen:"",
-      carrera:'',
-      estado:'',
-      tiempodesde:'',
-      tiempohasta:''
+      institucion:new FormControl('',Validators.compose([Validators.required])),
+      linkImagen:new FormControl('',Validators.compose([Validators.required])),
+      carrera:new FormControl('',Validators.compose([Validators.required])),
+      estado:new FormControl('',Validators.compose([Validators.required])),
+      tiempodesde:new FormControl('',Validators.compose([Validators.required])),
+      tiempohasta:new FormControl('',Validators.compose([Validators.required]))
     })
    }
 
@@ -80,11 +80,11 @@ export class EducacionComponent implements OnInit {
   }
   editarEducacion()
   {
-    this.edicionEducacion=this.form.value;
-    this.datosPortfolio.modificarDatos("http://localhost:3000/educacion/"+this._id,this.form.value).subscribe();
+    this.edicionEducacion=this.form1.value;
+    this.datosPortfolio.modificarDatos("http://localhost:3000/educacion/"+this._id,this.form1.value).subscribe();
     setTimeout(() => 
     {
       this.ngOnInit();
-    },50);
+    },80);
   }
 }

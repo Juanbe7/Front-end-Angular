@@ -18,7 +18,7 @@
               <form class="px-4 py-3" [formGroup]="formLogin">
                 <div class="form-group">
                   <label for="exampleDropdownFormEmail1">Email</label>
-                  <input type="email" class="form-control" id="exampleDropdownFormEmail1" placeholder="email@example.com" formControlName="email">
+                  <input type="email" class="form-control" id="exampleDropdownFormEmail1" placeholder="email@example.com" formControlName="email" [ngClass]="{'is-invalid':Email?.errors && Email?.touched, 'is-valid':!Email?.errors&&Email?.touched}">
                 </div>
                 <div *ngIf="Email?.errors && Email?.touched" class="errores">
                   <p *ngIf="Email?.hasError('required')" class="text-danger">Email requerido</p>
@@ -26,7 +26,7 @@
                 </div>
                 <div class="form-group">
                   <label for="exampleDropdownFormPassword1">Contraseña</label>
-                  <input type="password" class="form-control" id="exampleDropdownFormPassword1" placeholder="Password" formControlName="contraseña">                     
+                  <input type="password" class="form-control" id="exampleDropdownFormPassword1" placeholder="Password" formControlName="contraseña" [ngClass]="{'is-invalid':Pass?.errors && Pass?.touched, 'is-valid':!Pass?.errors&&Pass?.touched}">            
                 </div> 
                 <div *ngIf="Pass?.errors && Pass?.touched" class="errores" style="height: 45px;">
                   <p class="errores" *ngIf="Pass?.hasError('required')" class="text-danger">Contraseña requerida</p>
@@ -36,7 +36,7 @@
                   <input type="checkbox" class="form-check-input" id="dropdownCheck">
                   <label class="form-check-label" for="dropdownCheck">
                     Recordarme
-                  </label>
+                  </label> 
                 </div>
                 <div style="margin-top:10px ;">
                   <button (click)="modoEdicion()" [disabled]="!Email?.valid&&!Pass?.valid" type="submit" class="btn btn-warning">Sign in</button>
