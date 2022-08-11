@@ -39,7 +39,7 @@ export class HabilidadesComponent implements OnInit {
 
   ngOnInit(): void 
   {
-      this.datosPortfolio.obtenerDatos("http://localhost:3000/habilidades").subscribe(data =>
+      this.datosPortfolio.obtenerDatos("http://localhost:8080/habilidad").subscribe(data =>
       {
         this.miPorfolioHabilidades=data;
       });
@@ -56,7 +56,7 @@ export class HabilidadesComponent implements OnInit {
 
   editarHabilidad()
   {
-    this.datosPortfolio.modificarDatos("http://localhost:3000/habilidades/"+this.edicionHabilidad.id,this.form.value).subscribe();
+    this.datosPortfolio.modificarDatos("http://localhost:8080/habilidad/"+this.edicionHabilidad.id,this.form.value).subscribe();
       setTimeout(() => 
       {
         this.ngOnInit();
@@ -65,7 +65,7 @@ export class HabilidadesComponent implements OnInit {
 
   agregarHabilidad()
   {
-    this.datosPortfolio.guardarDatos("http://localhost:3000/habilidades",this.form2.value).subscribe();
+    this.datosPortfolio.guardarDatos("http://localhost:8080/habilidad",this.form2.value).subscribe();
     setTimeout(() => 
     {
       this.ngOnInit();
@@ -74,7 +74,7 @@ export class HabilidadesComponent implements OnInit {
 
   borrarHabilidad(id:number)
   {
-    this.datosPortfolio.eliminarDatos("http://localhost:3000/habilidades/"+id).subscribe();
+    this.datosPortfolio.eliminarDatos("http://localhost:8080/habilidad/"+id).subscribe();
     setTimeout(() => 
     {
       this.ngOnInit();

@@ -50,23 +50,23 @@ export class EducacionComponent implements OnInit {
 
   ngOnInit(): void
   {
-    this.datosPortfolio.obtenerDatos("http://localhost:3000/educacion").subscribe(data =>
+    this.datosPortfolio.obtenerDatos("http://localhost:8080/educacion").subscribe(data =>
     {
       this.miPorfolioEducacion=data;
     });
   }
   agregarEducacion()
   {
-    this.datosPortfolio.guardarDatos("http://localhost:3000/educacion",this.form.value).subscribe();
+    this.datosPortfolio.guardarDatos("http://localhost:8080/educacion",this.form.value).subscribe();
     setTimeout(() => 
     {
       this.ngOnInit();
-    },100);
+    },120);
    
   }
   borrarEducacion(id:number)
   {
-    this.datosPortfolio.eliminarDatos("http://localhost:3000/educacion/"+id).subscribe();
+    this.datosPortfolio.eliminarDatos("http://localhost:8080/educacion/"+id).subscribe();
     setTimeout(() => 
     {
       this.ngOnInit();
@@ -81,7 +81,7 @@ export class EducacionComponent implements OnInit {
   editarEducacion()
   {
     this.edicionEducacion=this.form1.value;
-    this.datosPortfolio.modificarDatos("http://localhost:3000/educacion/"+this._id,this.form1.value).subscribe();
+    this.datosPortfolio.modificarDatos("http://localhost:8080/educacion/"+this._id,this.form1.value).subscribe();
     setTimeout(() => 
     {
       this.ngOnInit();

@@ -25,7 +25,7 @@ export class PerfilComponent implements OnInit {
 
   ngOnInit(): void 
   {
-    this.datosPortfolio.obtenerDatos("http://localhost:3000/perfil").subscribe(data =>
+    this.datosPortfolio.obtenerDatos("http://localhost:8080/perfil").subscribe(data =>
       {
         this.miPorfolio=data;
       });
@@ -38,14 +38,10 @@ export class PerfilComponent implements OnInit {
 
   btnAceptar()
   {
-    this.datosPortfolio.guardarDatos("http://localhost:3000/perfil",this.form.value).subscribe();
-    setTimeout(() => 
-                    {
-                    this.datosPortfolio.obtenerDatos("http://localhost:3000/perfil").subscribe(data =>
-                      {
-                        this.miPorfolio=data;
-                      });
-                    },70);
+    this.datosPortfolio.guardarDatos("http://localhost:8080/perfil",this.form.value).subscribe();
+    setTimeout(() =>{
+      this.ngOnInit();
+    },70);
     this.ocultar=false;
   }
   btnCancelar()

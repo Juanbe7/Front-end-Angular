@@ -46,14 +46,14 @@ export class ProyectosComponent implements OnInit {
 
   ngOnInit(): void
   {
-    this.datosPortfolio.obtenerDatos("http://localhost:3000/proyectos").subscribe(data =>
+    this.datosPortfolio.obtenerDatos("http://localhost:8080/proyecto").subscribe(data =>
     {
       this.miPorfolioProyectos=data;
     });
   }
   agregarProyecto() 
   {
-    this.datosPortfolio.guardarDatos("http://localhost:3000/proyectos",this.form.value).subscribe();
+    this.datosPortfolio.guardarDatos("http://localhost:8080/proyecto",this.form.value).subscribe();
     setTimeout(() => 
     {
       this.ngOnInit();
@@ -62,7 +62,7 @@ export class ProyectosComponent implements OnInit {
   borrarProyecto(id:number)
   {
     console.log(id);
-    this.datosPortfolio.eliminarDatos("http://localhost:3000/proyectos/"+id).subscribe();
+    this.datosPortfolio.eliminarDatos("http://localhost:8080/proyecto/"+id).subscribe();
     setTimeout(() => 
     {
       this.ngOnInit();
@@ -81,7 +81,7 @@ export class ProyectosComponent implements OnInit {
   {
     this.edicionProyecto=this.form2.value;
     console.log(this.edicionProyecto);
-    this.datosPortfolio.modificarDatos("http://localhost:3000/proyectos/"+this._id,this.form2.value).subscribe();
+    this.datosPortfolio.modificarDatos("http://localhost:8080/proyecto/"+this._id,this.form2.value).subscribe();
     setTimeout(() => 
     {
       this.ngOnInit();
