@@ -13,9 +13,10 @@
           <button type="button" onclick="var win = window.open('https://www.linkedin.com/in/juan-bustos-91341b186/');win.focus();" class="btn-redes"><img src="./assets/Icons/linkedin.svg" alt="Linkedin" width="20" height="20"></button>
           </div>
           <div class="dropdown">
-            <button  type="button" class="btn btn-warning dropdown-toggle" data-toggle="dropdown" id="dropdownMenuButton" aria-haspopup="true" aria-expanded="false" style="margin-left: 50px;">Login</button>
-            <div class="dropdown-menu bg-dark text-white"  style="margin-right: 95px; width: 300px;">
-              <form class="px-4 py-3" [formGroup]="formLogin">
+            <button *ngIf="!isLogged" type="button" class="btn btn-warning dropdown-toggle" data-toggle="dropdown" id="dropdownMenuButton" aria-haspopup="true" aria-expanded="false" style="margin-left: 50px;">Login</button>
+            <button *ngIf="isLogged" (click)="salir()" type="button" class="btn btn-warning" style="width: 80px;margin-left: 50px;">Salir</button>
+            <div *ngIf="!isLogged" class="dropdown-menu bg-dark text-white"  style="margin-right: 95px; width: 300px;">
+              <form #f="ngForm" class="px-4 py-3" [formGroup]="formLogin" (ngSubmit)="onEvent($event)">
                 <div class="form-group">
                   <label for="exampleDropdownFormEmail1">Email</label>
                   <input type="email" class="form-control" id="exampleDropdownFormEmail1" placeholder="email@example.com" formControlName="email" [ngClass]="{'is-invalid':Email?.errors && Email?.touched, 'is-valid':!Email?.errors&&Email?.touched}">
@@ -26,7 +27,7 @@
                 </div>
                 <div class="form-group">
                   <label for="exampleDropdownFormPassword1">Contraseña</label>
-                  <input type="password" class="form-control" id="exampleDropdownFormPassword1" placeholder="Password" formControlName="contraseña" [ngClass]="{'is-invalid':Pass?.errors && Pass?.touched, 'is-valid':!Pass?.errors&&Pass?.touched}">            
+                  <input type="password" class="form-control" id="exampleDropdownFormPassword1" placeholder="Password" formControlName="password" [ngClass]="{'is-invalid':Pass?.errors && Pass?.touched, 'is-valid':!Pass?.errors&&Pass?.touched}">            
                 </div> 
                 <div *ngIf="Pass?.errors && Pass?.touched" class="errores" style="height: 45px;">
                   <p class="errores" *ngIf="Pass?.hasError('required')" class="text-danger">Contraseña requerida</p>
@@ -40,6 +41,9 @@
                 </div>
                 <div style="margin-top:10px ;">
                   <button (click)="modoEdicion()" [disabled]="!Email?.valid&&!Pass?.valid" type="submit" class="btn btn-warning">Sign in</button>
+                </div>
+                <div *ngIf="f.submitted && isLoginFail" style="margin-top: 10px;">
+                  <span class="text-danger">No se pudo inciar sesion, el email o contraseña es invalido</span>
                 </div>
               </form>
             </div>
