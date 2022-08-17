@@ -11,10 +11,10 @@
             <button type="button" onclick="var win = window.open('https://www.instagram.com/juanbe6/'); win.focus();" class="btn-redes"><img src="./assets/Icons/instagram.svg" alt="instagram" width="20" height="20"></button>
           <button type="button" onclick="var win = window.open('https://www.facebook.com/juanyto55');win.focus();" class="btn-redes"><img src="./assets/Icons/facebook.svg" alt="Facebook" width="20" height="20"></button>
           <button type="button" onclick="var win = window.open('https://www.linkedin.com/in/juan-bustos-91341b186/');win.focus();" class="btn-redes"><img src="./assets/Icons/linkedin.svg" alt="Linkedin" width="20" height="20"></button>
-          </div>
+        </div>
           <div class="dropdown">
             <button *ngIf="!isLogged" type="button" class="btn btn-warning dropdown-toggle" data-toggle="dropdown" id="dropdownMenuButton" aria-haspopup="true" aria-expanded="false" style="margin-left: 50px;">Login</button>
-            <button *ngIf="isLogged" (click)="salir()" type="button" class="btn btn-warning" style="width: 80px;margin-left: 50px;">Salir</button>
+            <button *ngIf="isLogged" (click)="salir()" type="button" class="btn btn-danger" style="width: 80px;margin-left: 50px;">Salir</button>
             <div *ngIf="!isLogged" class="dropdown-menu bg-dark text-white"  style="margin-right: 95px; width: 300px;">
               <form #f="ngForm" class="px-4 py-3" [formGroup]="formLogin" (ngSubmit)="onEvent($event)">
                 <div class="form-group">

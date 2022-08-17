@@ -13,6 +13,7 @@ import {MatProgressSpinnerModule} from '@angular/material/progress-spinner';
 import { FormsModule, NgModel, ReactiveFormsModule } from '@angular/forms';
 import {HttpClientModule} from '@angular/common/http';
 import {MatSliderModule} from '@angular/material/slider';
+import { LoaderComponent } from './componentes/loader/loader.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -21,6 +22,7 @@ import {MatSliderModule} from '@angular/material/slider';
     EducacionComponent,
     HabilidadesComponent,
     ProyectosComponent,
+    LoaderComponent,
   ],
   imports: [
     BrowserModule,

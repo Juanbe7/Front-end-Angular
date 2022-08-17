@@ -39,7 +39,7 @@ export class HabilidadesComponent implements OnInit {
 
   ngOnInit(): void 
   {
-      this.datosPortfolio.obtenerDatos("http://localhost:8080/habilidad").subscribe(data =>
+      this.datosPortfolio.obtenerDatos("https://juan-bustos-porfolio.herokuapp.com/habilidad").subscribe(data =>
       {
         this.miPorfolioHabilidades=data;
       });
@@ -56,28 +56,16 @@ export class HabilidadesComponent implements OnInit {
 
   editarHabilidad()
   {
-    this.datosPortfolio.modificarDatos("http://localhost:8080/habilidad/"+this.edicionHabilidad.id,this.form.value).subscribe();
-      setTimeout(() => 
-      {
-        this.ngOnInit();
-      },50);
+    this.datosPortfolio.modificarDatos("https://juan-bustos-porfolio.herokuapp.com/habilidad/"+this.edicionHabilidad.id,this.form.value).subscribe(resp=>{this.ngOnInit();});
   }
 
   agregarHabilidad()
   {
-    this.datosPortfolio.guardarDatos("http://localhost:8080/habilidad",this.form2.value).subscribe();
-    setTimeout(() => 
-    {
-      this.ngOnInit();
-    },50);
+    this.datosPortfolio.guardarDatos("https://porfolio-ap-juan.herokuapp.com/habilidad",this.form2.value).subscribe(resp=>{this.ngOnInit();});
   }
 
   borrarHabilidad(id:number)
   {
-    this.datosPortfolio.eliminarDatos("http://localhost:8080/habilidad/"+id).subscribe();
-    setTimeout(() => 
-    {
-      this.ngOnInit();
-    },50);
+    this.datosPortfolio.eliminarDatos("https://juan-bustos-porfolio.herokuapp.com/habilidad/"+id).subscribe(resp=>{this.ngOnInit();});
   }
 }

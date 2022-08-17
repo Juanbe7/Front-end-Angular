@@ -50,27 +50,18 @@ export class EducacionComponent implements OnInit {
 
   ngOnInit(): void
   {
-    this.datosPortfolio.obtenerDatos("http://localhost:8080/educacion").subscribe(data =>
+    this.datosPortfolio.obtenerDatos("https://juan-bustos-porfolio.herokuapp.com/educacion").subscribe(data =>
     {
       this.miPorfolioEducacion=data;
     });
   }
   agregarEducacion()
   {
-    this.datosPortfolio.guardarDatos("http://localhost:8080/educacion",this.form.value).subscribe();
-    setTimeout(() => 
-    {
-      this.ngOnInit();
-    },120);
-   
+    this.datosPortfolio.guardarDatos("https://juan-bustos-porfolio.herokuapp.com/educacion",this.form.value).subscribe(response=>{this.ngOnInit();});
   }
   borrarEducacion(id:number)
   {
-    this.datosPortfolio.eliminarDatos("http://localhost:8080/educacion/"+id).subscribe();
-    setTimeout(() => 
-    {
-      this.ngOnInit();
-    },50);
+    this.datosPortfolio.eliminarDatos("https://juan-bustos-porfolio.herokuapp.com/educacion/"+id).subscribe(response=>{this.ngOnInit();});
   }
   irEditarEducacion(indice:number,id:number)
   {
@@ -81,10 +72,6 @@ export class EducacionComponent implements OnInit {
   editarEducacion()
   {
     this.edicionEducacion=this.form1.value;
-    this.datosPortfolio.modificarDatos("http://localhost:8080/educacion/"+this._id,this.form1.value).subscribe();
-    setTimeout(() => 
-    {
-      this.ngOnInit();
-    },80);
+    this.datosPortfolio.modificarDatos("https://juan-bustos-porfolio.herokuapp.com/educacion/"+this._id,this.form1.value).subscribe(response=>{this.ngOnInit();});
   }
 }

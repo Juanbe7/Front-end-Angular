@@ -25,7 +25,7 @@ export class PerfilComponent implements OnInit {
 
   ngOnInit(): void 
   {
-    this.datosPortfolio.obtenerDatos("http://localhost:8080/perfil").subscribe(data =>
+    this.datosPortfolio.obtenerDatos("https://juan-bustos-porfolio.herokuapp.com/perfil").subscribe(data =>
       {
         this.miPorfolio=data;
       });
@@ -38,10 +38,7 @@ export class PerfilComponent implements OnInit {
 
   btnAceptar()
   {
-    this.datosPortfolio.guardarDatos("http://localhost:8080/perfil",this.form.value).subscribe();
-    setTimeout(() =>{
-      this.ngOnInit();
-    },70);
+    this.datosPortfolio.guardarDatos("https://juan-bustos-porfolio.herokuapp.com/perfil",this.form.value).subscribe(resp=>{this.ngOnInit();});
     this.ocultar=false;
   }
   btnCancelar()
