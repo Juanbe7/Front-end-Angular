@@ -1,4 +1,4 @@
-<div *ngIf="isLoad" class="loader">
+<div *ngIf="!(isLoad$|async)" class="loader">
     <div class="loading-wrap">
         <div class="triangle1"></div>
         <div class="triangle2"></div>

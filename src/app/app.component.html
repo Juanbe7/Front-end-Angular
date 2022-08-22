@@ -1,5 +1,5 @@
 <app-loader></app-loader>
-<div style="background-color:#3e6775;">
+<div style="background-color:#3e6775;" *ngIf="isLoad$|async">
 <app-encabezado></app-encabezado>
   <div class="container">
     <app-perfil></app-perfil>

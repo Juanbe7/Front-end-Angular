@@ -56,12 +56,12 @@ export class HabilidadesComponent implements OnInit {
 
   editarHabilidad()
   {
-    this.datosPortfolio.modificarDatos("https://juan-bustos-porfolio.herokuapp.com/habilidad/"+this.edicionHabilidad.id,this.form.value).subscribe(resp=>{this.ngOnInit();});
+    this.datosPortfolio.modificarDatos("https://juan-bustos-porfolio.herokuapp.com/habilidad/"+this.edicionHabilidad.id,this.form.value).subscribe(resp=>{this.ngOnInit();this.form.reset();this.value=0;});
   }
 
   agregarHabilidad()
   {
-    this.datosPortfolio.guardarDatos("https://porfolio-ap-juan.herokuapp.com/habilidad",this.form2.value).subscribe(resp=>{this.ngOnInit();});
+    this.datosPortfolio.guardarDatos("https://juan-bustos-porfolio.herokuapp.com/habilidad",this.form2.value).subscribe(resp=>{this.ngOnInit();this.form2.reset();this.value=0;});
   }
 
   borrarHabilidad(id:number)

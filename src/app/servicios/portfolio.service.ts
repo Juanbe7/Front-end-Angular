@@ -38,5 +38,17 @@ export class PortfolioService {
     this.sharingObservablePrivate.next(data);
   }
 
+  private isLoadPrivate: BehaviorSubject<boolean> = new BehaviorSubject<boolean>(false);
+
+  get isLoad()
+  {
+    return this.isLoadPrivate.asObservable();
+  }
+
+  set isLoadData(data: boolean)
+  {
+    this.isLoadPrivate.next(data);
+  }
+
 }
 

@@ -17,8 +17,14 @@ export class EncabezadoComponent implements OnInit {
   isLoginFail = false;
   data$: Observable<boolean>;
   formLogin:FormGroup;
+  formContacto:FormGroup;
   constructor(public sharingService:PortfolioService, private formBuilder:FormBuilder, private autenticacionService:AutenticacionService, private tokenService: TokenService) {
     this.data$ = sharingService.sharingObservable;
+    this.formContacto=this.formBuilder.group({
+      nombreDe:['',Validators.required],
+      mensaje:['',Validators.required],
+      emailDe:['',Validators.required],
+    })
     this.formLogin=this.formBuilder.group({
       email:['',[Validators.required,Validators.email]],
       password:['',[Validators.required,Validators.minLength(8)]],
@@ -84,4 +90,8 @@ export class EncabezadoComponent implements OnInit {
       });
   }
 
+  onEnviar()
+  {
+    this.sharingService.guardarDatos("https://juan-bustos-porfolio.herokuapp.com/enviarmail",this.formContacto.value).subscribe(respuesta => this.formContacto.reset());
+  }
 }

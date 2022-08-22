@@ -53,11 +53,10 @@ export class ProyectosComponent implements OnInit {
   }
   agregarProyecto() 
   {
-    this.datosPortfolio.guardarDatos("https://juan-bustos-porfolio.herokuapp.com/proyecto",this.form.value).subscribe(resp=>{this.ngOnInit();});
+    this.datosPortfolio.guardarDatos("https://juan-bustos-porfolio.herokuapp.com/proyecto",this.form.value).subscribe(resp=>{this.ngOnInit();this.form.reset();});
   }
   borrarProyecto(id:number)
   {
-    console.log(id);
     this.datosPortfolio.eliminarDatos("https://juan-bustos-porfolio.herokuapp.com/proyecto/"+id).subscribe(resp=>{this.ngOnInit();});
   }
   irEditarProyecto(indice:number,id:number)

@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Observable } from 'rxjs';
 import { PortfolioService } from 'src/app/servicios/portfolio.service';
 
 @Component({
@@ -8,14 +9,14 @@ import { PortfolioService } from 'src/app/servicios/portfolio.service';
 })
 export class LoaderComponent implements OnInit {
   
-  isLoad=false;
+  isLoad$:Observable<boolean>;
   constructor(private datosPortfolio:PortfolioService) {
-
+    this.isLoad$=this.datosPortfolio.isLoad;
    }
 
   ngOnInit(): void {
     this.datosPortfolio.obtenerDatos("https://juan-bustos-porfolio.herokuapp.com/perfil").subscribe(resp=>{
-      this.isLoad=true;
+      this.datosPortfolio.isLoadData=true;
     });
   }
 
