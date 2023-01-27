@@ -5,8 +5,8 @@
       <div class="d-flex align-items-center foto">     
         <!-- <img src="./assets/perfil-vacio.png"  class="img-perfil" alt=""> -->
         <img [src]="miPorfolio.imagen"  class="img-perfil" alt="">
-        <div class="capa">
-          <button  class="btn-editar hide btnEditarNombre" data-toggle="modal" data-target="#modalEdicionPerfil"><img src="./assets/Icons/pencil.svg" alt="Bootstrap" width="20" height="15"></button>
+        <div class="capa" *ngIf="(data$|async)&&ocultar==false">
+          <button  class="btn-editar hide btnEditarNombre" data-toggle="modal"  data-target="#modalEdicionPerfil"><img src="./assets/Icons/pencil.svg" alt="Bootstrap" width="20" height="15"></button>
         </div>
       </div>
       <div class="d-flex justify-content-between prueba card-titulo">   
@@ -55,29 +55,3 @@
     </div> 
   </div>
 </form>
-<!-- 
-  <div class="card" style="width: 100%;">
-    <img src="./assets/Sin-título-1.png" class="card-img-top" style="border-radius: 5px 5px 0 0;background-color: #475153"alt="...">
-    <div class="card-body" >
-      <div class="d-flex align-items-center foto">     
-        <img src="./assets/perfil-vacio.png"  class="img-perfil" alt="">
-        <div class="capa">
-          <button  class="btn-editar hide btnEditarNombre" data-toggle="modal" data-target="#modalEdicionPerfil"><img src="./assets/Icons/pencil.svg" alt="Bootstrap" width="20" height="15"></button>
-        </div>
-      </div>
-      <div class="d-flex justify-content-between prueba card-titulo">   
-        <h3 class="" id="nombre" type="text">Juan Bustos</h3>
-        <div *ngIf="ocultar == true"><input formControlName="nombre" type="text" id="txtNombre" ngModel="{{miPorfolio.nombre}}"> 
-      </div>
-        <div>
-          <button  class="btn-editar hide btnEditarNombre"><img src="./assets/Icons/pencil.svg" alt="Bootstrap" width="20" height="15" style="margin-top: -10px;"></button>
-           <button (click)="btnAceptar()"  class="btn-editar edicion" *ngIf="ocultar == true"><img src="./assets/Icons/check.svg" alt="Bootstrap" width="30" height="30" style="margin-top: -10px;"></button>
-          <button (click)="btnCancelar()" class="btn-editar edicion" *ngIf="ocultar == true" ><img src="./assets/Icons/x.svg" alt="Bootstrap" width="30" height="30" style="margin-top: -10px;"></button>
-       </div> 
-      </div>
-      <div class="card-acercade">
-        <p id="acercaDe" class="puesto card-text" style="margin-top:5px;">Desarrollador Full Stack</p>
-         <div *ngIf="ocultar == true"><input formControlName="descripcion" type="text" id="txtAcercaDe" class="card-text edicion" ngModel="{{miPorfolio.descripcion}}"></div> 
-      </div>
-    </div>
-  </div> -->

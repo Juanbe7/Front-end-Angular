@@ -15,7 +15,7 @@ export class LoaderComponent implements OnInit {
    }
 
   ngOnInit(): void {
-    this.datosPortfolio.obtenerDatos("https://juan-bustos-porfolio.herokuapp.com/perfil").subscribe(resp=>{
+    this.datosPortfolio.obtenerDatos(this.datosPortfolio.apiURL+"/perfil").subscribe(resp=>{
       this.datosPortfolio.isLoadData=true;
     });
   }

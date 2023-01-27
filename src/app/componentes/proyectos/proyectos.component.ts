@@ -46,18 +46,18 @@ export class ProyectosComponent implements OnInit {
 
   ngOnInit(): void
   {
-    this.datosPortfolio.obtenerDatos("https://juan-bustos-porfolio.herokuapp.com/proyecto").subscribe(data =>
+    this.datosPortfolio.obtenerDatos(this.datosPortfolio.apiURL+"/proyecto").subscribe(data =>
     {
       this.miPorfolioProyectos=data;
     });
   }
   agregarProyecto() 
   {
-    this.datosPortfolio.guardarDatos("https://juan-bustos-porfolio.herokuapp.com/proyecto",this.form.value).subscribe(resp=>{this.ngOnInit();this.form.reset();});
+    this.datosPortfolio.guardarDatos(this.datosPortfolio.apiURL+"/proyecto",this.form.value).subscribe(resp=>{this.ngOnInit();this.form.reset();});
   }
   borrarProyecto(id:number)
   {
-    this.datosPortfolio.eliminarDatos("https://juan-bustos-porfolio.herokuapp.com/proyecto/"+id).subscribe(resp=>{this.ngOnInit();});
+    this.datosPortfolio.eliminarDatos(this.datosPortfolio.apiURL+"/proyecto/"+id).subscribe(resp=>{this.ngOnInit();});
   }
   irEditarProyecto(indice:number,id:number)
   {
@@ -68,6 +68,6 @@ export class ProyectosComponent implements OnInit {
   editarProyecto()
   {
     this.edicionProyecto=this.form2.value;
-    this.datosPortfolio.modificarDatos("https://juan-bustos-porfolio.herokuapp.com/proyecto/"+this._id,this.form2.value).subscribe(resp=>{this.ngOnInit();});
+    this.datosPortfolio.modificarDatos(this.datosPortfolio.apiURL+"/proyecto/"+this._id,this.form2.value).subscribe(resp=>{this.ngOnInit();});
   }
 }

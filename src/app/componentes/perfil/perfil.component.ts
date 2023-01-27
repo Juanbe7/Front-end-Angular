@@ -11,7 +11,7 @@ import { HttpClient } from '@angular/common/http';
   changeDetection: ChangeDetectionStrategy.Default,
 })
 export class PerfilComponent implements OnInit {
-  url:string = "https://juan-bustos-porfolio.herokuapp.com";
+  url:string;
   miPorfolio:any;
   ocultar=false;
   form:FormGroup;
@@ -25,8 +25,9 @@ export class PerfilComponent implements OnInit {
   } 
   public archivo:any;
   public previsualizacion: string | null ="";
-  constructor(private datosPortfolio:PortfolioService, private formBuilder:FormBuilder,private sanitizer: DomSanitizer, private http:HttpClient )
+  constructor(private datosPortfolio:PortfolioService, private formBuilder:FormBuilder)
   { 
+    this.url=datosPortfolio.apiURL;
     this.isLoad$=datosPortfolio.isLoad;
     this.data$=datosPortfolio.sharingObservable;
     this.form=this.formBuilder.group({

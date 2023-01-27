@@ -16,6 +16,7 @@ export class HabilidadesComponent implements OnInit {
   _indice:number=0;
   value:number|null=0;
   data$:Observable<boolean>;
+  url:string;
   edicionHabilidad=
   {
     id:'',
@@ -25,6 +26,7 @@ export class HabilidadesComponent implements OnInit {
   constructor(private datosPortfolio:PortfolioService, private formBuilder:FormBuilder)
   {
     this.data$ = datosPortfolio.sharingObservable
+    this.url=datosPortfolio.apiURL;
     this.form=this.formBuilder.group({
       id:'',
       name:new FormControl('',Validators.compose([Validators.required])),
@@ -39,7 +41,7 @@ export class HabilidadesComponent implements OnInit {
 
   ngOnInit(): void 
   {
-      this.datosPortfolio.obtenerDatos("https://juan-bustos-porfolio.herokuapp.com/habilidad").subscribe(data =>
+      this.datosPortfolio.obtenerDatos(this.url+"/habilidad").subscribe(data =>
       {
         this.miPorfolioHabilidades=data;
       });
@@ -56,16 +58,16 @@ export class HabilidadesComponent implements OnInit {
 
   editarHabilidad()
   {
-    this.datosPortfolio.modificarDatos("https://juan-bustos-porfolio.herokuapp.com/habilidad/"+this.edicionHabilidad.id,this.form.value).subscribe(resp=>{this.ngOnInit();this.form.reset();this.value=0;});
+    this.datosPortfolio.modificarDatos(this.url+"/habilidad/"+this.edicionHabilidad.id,this.form.value).subscribe(resp=>{this.ngOnInit();this.form.reset();this.value=0;});
   }
 
   agregarHabilidad()
   {
-    this.datosPortfolio.guardarDatos("https://juan-bustos-porfolio.herokuapp.com/habilidad",this.form2.value).subscribe(resp=>{this.ngOnInit();this.form2.reset();this.value=0;});
+    this.datosPortfolio.guardarDatos(this.url+"/habilidad",this.form2.value).subscribe(resp=>{this.ngOnInit();this.form2.reset();this.value=0;});
   }
 
   borrarHabilidad(id:number)
   {
-    this.datosPortfolio.eliminarDatos("https://juan-bustos-porfolio.herokuapp.com/habilidad/"+id).subscribe(resp=>{this.ngOnInit();});
+    this.datosPortfolio.eliminarDatos(this.url+"/habilidad/"+id).subscribe(resp=>{this.ngOnInit();});
   }
 }

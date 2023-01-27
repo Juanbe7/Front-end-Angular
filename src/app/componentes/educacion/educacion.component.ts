@@ -10,7 +10,7 @@ import { PortfolioService } from 'src/app/servicios/portfolio.service';
 })
 export class EducacionComponent implements OnInit {
   miPorfolioEducacion:any;
-  url:string = "https://juan-bustos-porfolio.herokuapp.com";
+  url:string;
   edicionEducacion=
   {
     id:'',
@@ -28,6 +28,7 @@ export class EducacionComponent implements OnInit {
   data$:Observable<boolean>;
   constructor(private datosPortfolio:PortfolioService, private formBuilder:FormBuilder)
   {
+    this.url=datosPortfolio.apiURL;
     this.data$ = datosPortfolio.sharingObservable;
     this.form=this.formBuilder.group({
       id: '',
