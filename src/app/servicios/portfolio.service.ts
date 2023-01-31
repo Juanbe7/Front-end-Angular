@@ -7,7 +7,7 @@ import { BehaviorSubject, Observable } from 'rxjs';
 })
 export class PortfolioService {
   public esconder:boolean =true;
-  public apiURL:string ="https://porfolioback-end.onrender.com";
+  public apiURL:string ="https://porfolioback-end2.onrender.com";
   constructor(private httpRequeset:HttpClient) { }
   obtenerDatos(url: string):Observable<any>
   {
